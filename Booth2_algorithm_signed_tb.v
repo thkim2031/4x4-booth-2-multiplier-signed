@@ -26,7 +26,7 @@ module Booth2_algorithm_signed_tb();
 
     wire [7:0]  result;
 
-    booth booth0(.rst(rst), .clk(clk), .x(x), .multiplier(multiplier), .result(result));
+    top top0(.RST(rst), .CLK(clk), .multiplicand(x), .multiplier(multiplier), .final_result(result));
 
     initial 
     begin
@@ -55,7 +55,9 @@ module Booth2_algorithm_signed_tb();
         #15;
         x = 4'b1100;
         multiplier = 4'b1111;
-    
-    
     end
+
+    always #20 clk = ~clk;
+    
+    
 endmodule
